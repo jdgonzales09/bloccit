@@ -9,11 +9,12 @@ class SponsoredPostsController < ApplicationController
   end
 
   def create
+    @topic = Topic.find(params[:topic_id])
+
     @sponsored_post = SponsoredPost.new
     @sponsored_post.title = params[:sponsored_post][:title]
     @sponsored_post.body = params[:sponsored_post][:body]
     @sponsored_post.price = params[:sponsored_post][:price]
-    @topic = Topic.find(params[:topic_id])
 
     @sponsored_post.topic = @topic
 
