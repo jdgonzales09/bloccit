@@ -1,6 +1,6 @@
 require 'random_data'
 
-# Create topics
+# Create Topics
 15.times do
   Topic.create!(
     name: RandomData.random_sentence,
@@ -8,6 +8,16 @@ require 'random_data'
   )
 end
 topics = Topic.all
+
+# Create sponsored_posts
+15.times do
+  SponsoredPost.create!(
+  title: RandomData.random_sentence,
+  body: RandomData.random_paragraph,
+  price: rand(50..100)
+  )
+end
+sponsored_posts = SponsoredPost.all
 
 # Create Posts
 50.times do
@@ -29,5 +39,6 @@ end
 
 puts "Seed finished"
 puts "#{Topic.count} topics created"
+puts "#{SponsoredPost.count} sponsored posts created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
