@@ -1,0 +1,12 @@
+<h2>Sign Up Confirmation</h2>
+<div class="col-md-4">
+  <h4>Are you sure these values are correct?</h4>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <%= link_to "Yes", {controller: "users", action: "create", params: params}, class: 'btn btn-success' %>
+  </div>
+  <div class="col-md-4">
+    <%= link_to "No", new_user_path, class: 'btn btn-danger' %>
+  </div>
+</div>
