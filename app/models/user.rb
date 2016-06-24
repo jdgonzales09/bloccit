@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :posts
-  
+
   before_save { self.email = email.downcase if email.present? }
   before_save { self.role ||= :member }
 
@@ -10,12 +10,12 @@ class User < ActiveRecord::Base
  validates :password, presence: true, length: { minimum: 6 }, unless: :password_digest
  validates :password, length: { minimum: 6 }, allow_blank: true
 
-validates :email,
+ validates :email,
       presence: true,
       uniqueness: { case_sensitive: false },
       length: { minimum: 3, maximum: 254 }
 
   has_secure_password
 
-  enum role: [:member, :admin]
+  enum role: [:member, :admin, :moderator]
 end
