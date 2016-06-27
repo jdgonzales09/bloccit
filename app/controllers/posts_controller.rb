@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :require_sign_in, except: :show
   before_action :authorize_user, except: [:show, :new, :create]
 
+  after_create :create_vote
   def show
     @post = Post.find(params[:id])
   end
