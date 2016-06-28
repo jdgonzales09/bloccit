@@ -27,3 +27,8 @@
 <% else %>
     <h2><%= @user.name%> has not created any posts yet.</h2>
 <% end %>
+
+<h2>Favorite Posts</h2>
+   <% @user.favorites.each do |fav| %>
+     <%= image_tag(fav.post.user.avatar_url(24)) %><%= render fav.post %>
+   <% end %>
