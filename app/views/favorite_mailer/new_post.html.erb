@@ -1,0 +1,13 @@
+<DOCTYPE html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    </head>
+    <body>
+        <h1>You're now subscribed to <%= link_to @post.title, topic_post_url(@post.topic, @post) %></h1>
+        <p>You will receieve all future updates for this post!<p>
+        <small>
+            If you wish to unsubscribe from email notifications, please unfavorite the post.
+        </small>
+</body>
+
+</html>
