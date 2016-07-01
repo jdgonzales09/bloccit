@@ -4,24 +4,32 @@ class VotesController < ApplicationController
 
     def up_vote
         update_vote(1)
-        redirect_to :back
+
+        respond_to do |format|
+            format.html
+            format.js
+        end
     end
 
     def down_vote
         update_vote(-1)
-        redirect_to :back
+        respond_to do |format|
+            format.html
+            format.js
+        end
     end
 
     private
 
     def update_vote(new_value)
-        @post = Post.find(params[:post_id])
-        @vote = @post.votes.where(user_id: current_user.id).first
+      @post = Post.find(params[:post_id])
+      @vote = @post.votes.where(user_id: current_user.id).first
 
-        if @vote
-            @vote.update_attribute(:value, new_value)
-        else
-            @vote = current_user.votes.create(value: new_value, post: @post)
-        end
+      if @vote
+        @vote.update_attribute(:value, new_value)
+      else
+        @vote = current_user.votes.create(value: new_value, post: @post)
+      end
+
     end
 end

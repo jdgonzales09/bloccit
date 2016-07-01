@@ -1,0 +1,5 @@
+<% if @vote.valid? %>
+   $('#<%= @post.id %>').html("<%= @post.points %>");
+ <% else %>
+   $('.flash').prepend("<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>&times;</button><%= flash.now[:alert] %></div>");
+ <% end %>
