@@ -6,9 +6,9 @@ RSpec.describe Post, type: :model do
   let(:title) { RandomData.random_sentence }
   let(:body) { RandomData.random_paragraph }
 
-  let(:topic) { build_stubbed(:topic) }
-  let(:user) { build_stubbed(:user) }
-  let(:post) { build_stubbed(:post) }
+  let(:topic) { create(:topic) }
+  let(:user) { create(:user) }
+  let(:post) { create(:post) }
 
   it { is_expected.to have_many(:labelings) }
   it { is_expected.to have_many(:labels).through(:labelings) }

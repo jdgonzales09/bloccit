@@ -16,8 +16,11 @@ source 'https://rubygems.org'
 
  group :development, :test do
    gem 'rspec-rails', '~> 3.0'
+   gem 'sqlite3'
    gem "nyan-cat-formatter"
    gem 'shoulda'
+   gem 'parallel_tests'
+   gem 'rack-mini-profiler'
  end
 
  # Use SCSS for stylesheets
